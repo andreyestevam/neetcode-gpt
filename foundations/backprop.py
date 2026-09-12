@@ -17,9 +17,7 @@ class Solution:
         y_hat = 1.0 / (1.0 + np.exp(-z)) # sigmoid(z)
         L = ((y_hat - y_true) ** 2) / 2
         
-        dL_dw = []
-        for i in range(len(w)):
-            dL_dw.append(np.round(((y_hat - y_true) * y_hat * (1 - y_hat) * x[i]), 5))
+        dL_dw = np.round(((y_hat - y_true) * y_hat * (1 - y_hat) * x), 5)
 
         dL_db = np.round((y_hat - y_true) * y_hat * (1 - y_hat), 5)
 
