@@ -14,8 +14,8 @@ class Solution:
         h = x
 
         for i in range(len(weights)):
-            h = h @ weights[i] + biases[i]
+            h = h @ weights[i] + biases[i] # Linear transformation
             if i < len(weights) - 1:
-                h = np.maximum(0.0, h)
+                h = np.maximum(0.0, h) # ReLU on hidden layers. If it's the last layer, do not apply ReLU
         
         return np.round(h, 5)
