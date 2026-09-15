@@ -10,10 +10,10 @@ class Solution:
         x = np.array(x)
         gamma = np.array(gamma)
 
-        mean = np.mean(x**2)
-        rms = np.sqrt(mean + eps)
-        x_hat = x / rms
+        rms = np.sqrt(np.mean(x**2) + eps)
+        
+        x_hat = x / rms # Normalize
 
-        y = gamma * x_hat
+        y = gamma * x_hat # Scale (no shift, i.e. no beta)
 
         return np.round(y, 4)
